@@ -23,6 +23,7 @@ export default {
       },
       colors: {
         border: "hsl(var(--border))",
+        primary: '#3B82F6',
         background: {
           DEFAULT: "#0A0A0A",
           secondary: "#141414",

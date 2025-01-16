@@ -1,5 +1,13 @@
-import { Clock } from "lucide-react";
+import { Clock, PlusCircle, XCircle } from "lucide-react";
 import React, { useEffect, useState } from "react";
+
+interface TimeZoneData {
+  country: string;
+  timezone: string;
+  flagCode: string;
+  capital: string;
+  shortCode: string;
+}
 
 interface TimeZoneCardProps {
   country: string;
@@ -9,16 +17,19 @@ interface TimeZoneCardProps {
   shortCode: string;
   index: number;
   span?: string;
+  onAddToFavorites: (newFavorite: any) => void;
 }
 
-const TimeZoneCard: React.FC<TimeZoneCardProps> = ({ 
+const TimeZoneCard: React.FC<TimeZoneCardProps & { onAddToFavorites: (data: TimeZoneData) => void; isFavorite: boolean; }> = ({ 
   country, 
   timezone, 
   flagCode,
   capital,
   shortCode,
   index,
-  span = "col-span-1"
+  span = "col-span-1",
+  onAddToFavorites,
+  isFavorite
 }) => {
   const [currentTime, setCurrentTime] = useState<string>("");
   const [currentDate, setCurrentDate] = useState<string>("");
@@ -62,6 +73,10 @@ const TimeZoneCard: React.FC<TimeZoneCardProps> = ({
     return () => clearInterval(intervalId);
   }, [timezone]);
 
+  const handleToggleFavorite = () => {
+    onAddToFavorites({ country, timezone, flagCode, capital, shortCode });
+  };
+
   return (
     <div
       className={`${span} relative bg-card backdrop-blur-sm rounded-xl p-4 md:p-6 transition-all duration-300 hover:bg-card-hover transform hover:-translate-y-1 animate-slide-up border border-white/10 hover:border-white/20`}
@@ -83,6 +98,17 @@ const TimeZoneCard: React.FC<TimeZoneCardProps> = ({
         <span className="text-xs md:text-sm bg-background/50 px-2.5 py-1 rounded-md text-white/80 font-medium">
           {shortCode}
         </span>
+        {/* Toggle Button for Favorites */}
+        <button 
+          className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 p-1 rounded-full bg-white/10 hover:bg-white/20 transition duration-200"
+          onClick={handleToggleFavorite}
+        >
+          {isFavorite ? (
+            <XCircle className="w-5 h-5 text-white/80" />
+          ) : (
+            <PlusCircle className="w-5 h-5 text-white/80" />
+          )}
+        </button>
       </div>
       
       {/* Time display */}
