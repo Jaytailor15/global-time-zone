@@ -1,4 +1,4 @@
-import { Clock, DollarSign, PlusCircle, XCircle } from "lucide-react";
+import { Clock, Coins, PlusCircle, XCircle } from "lucide-react";
 import React, { useEffect, useState } from "react";
 import { getCurrencyInfo } from '../utils/currencyUtils';
 
@@ -145,7 +145,7 @@ const TimeZoneCard: React.FC<TimeZoneCardProps & { onAddToFavorites: (data: Time
         {/* Currency Display */}
         <div className="flex items-center justify-between bg-background/30 rounded-lg p-3 mt-3">
           <div className="flex items-center gap-2">
-            <DollarSign className="w-4 h-4 text-white/70" />
+            <Coins className="w-4 h-4 text-white/70" />
             <span className="text-sm font-medium text-white/80">{name}</span>
           </div>
           <span className="text-base font-bold text-white/90 font-mono">
