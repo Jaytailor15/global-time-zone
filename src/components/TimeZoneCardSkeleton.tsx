@@ -1,4 +1,3 @@
-
 const TimeZoneCardSkeleton = () => {
   return (
     <div className="bg-card rounded-xl p-4 md:p-6 animate-pulse border border-white/5">
@@ -27,7 +26,13 @@ const TimeZoneCardSkeleton = () => {
           </div>
         </div>
         
-        <div className="h-3 md:h-4 bg-white/5 rounded w-32" />
+        <div className="flex items-center justify-between bg-white/5 rounded-lg p-3 mt-3">
+          <div className="flex items-center gap-2">
+            <div className="w-4 h-4 bg-white/5 rounded" />
+            <div className="h-4 bg-white/5 rounded w-24" />
+          </div>
+          <div className="h-4 bg-white/5 rounded w-8" />
+        </div>
       </div>
     </div>
   );

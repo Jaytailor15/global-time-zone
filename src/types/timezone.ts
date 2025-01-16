@@ -5,4 +5,5 @@ export interface TimeZoneData {
   capital: string;
   shortCode: string;
   span?: string;
+  currency: string;
 } 

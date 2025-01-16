@@ -1,4 +1,5 @@
 import React from 'react';
+import '../styles/globals.css';
 
 interface AlphabetFilterProps {
   selectedLetter: string | null;
@@ -44,31 +45,6 @@ const AlphabetFilter: React.FC<AlphabetFilterProps> = ({
           </button>
         ))}
       </div>
-
-      <style>{`
-        /* Custom scrollbar styles */
-        .scrollbar-thin {
-          scrollbar-width: thin;
-          scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
-        }
-        
-        .scrollbar-thin::-webkit-scrollbar {
-          height: 4px;
-        }
-        
-        .scrollbar-thin::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        
-        .scrollbar-thin::-webkit-scrollbar-thumb {
-          background-color: rgba(255, 255, 255, 0.1);
-          border-radius: 20px;
-        }
-        
-        .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-          background-color: rgba(255, 255, 255, 0.2);
-        }
-      `}</style>
     </div>
   );
 };

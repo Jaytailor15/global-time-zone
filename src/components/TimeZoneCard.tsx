@@ -1,5 +1,6 @@
-import { Clock, PlusCircle, XCircle } from "lucide-react";
+import { Clock, DollarSign, PlusCircle, XCircle } from "lucide-react";
 import React, { useEffect, useState } from "react";
+import { getCurrencyInfo } from '../utils/currencyUtils';
 
 interface TimeZoneData {
   country: string;
@@ -7,6 +8,7 @@ interface TimeZoneData {
   flagCode: string;
   capital: string;
   shortCode: string;
+  currency: string;
 }
 
 interface TimeZoneCardProps {
@@ -15,6 +17,7 @@ interface TimeZoneCardProps {
   flagCode: string;
   capital: string;
   shortCode: string;
+  currency: string;
   index: number;
   span?: string;
   onAddToFavorites: (newFavorite: any) => void;
@@ -26,6 +29,7 @@ const TimeZoneCard: React.FC<TimeZoneCardProps & { onAddToFavorites: (data: Time
   flagCode,
   capital,
   shortCode,
+  currency,
   index,
   span = "col-span-1",
   onAddToFavorites,
@@ -74,8 +78,10 @@ const TimeZoneCard: React.FC<TimeZoneCardProps & { onAddToFavorites: (data: Time
   }, [timezone]);
 
   const handleToggleFavorite = () => {
-    onAddToFavorites({ country, timezone, flagCode, capital, shortCode });
+    onAddToFavorites({ country, timezone, flagCode, capital, shortCode, currency });
   };
+
+  const { name, symbol } = getCurrencyInfo(currency);
 
   return (
     <div
@@ -98,7 +104,6 @@ const TimeZoneCard: React.FC<TimeZoneCardProps & { onAddToFavorites: (data: Time
         <span className="text-xs md:text-sm bg-background/50 px-2.5 py-1 rounded-md text-white/80 font-medium">
           {shortCode}
         </span>
-        {/* Toggle Button for Favorites */}
         <button 
           className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 p-1 rounded-full bg-white/10 hover:bg-white/20 transition duration-200"
           onClick={handleToggleFavorite}
@@ -135,6 +140,17 @@ const TimeZoneCard: React.FC<TimeZoneCardProps & { onAddToFavorites: (data: Time
             <span className="text-white/60">{timezone.replace(/_/g, " ")}</span>
             <span className="font-medium text-white/80">Capital: {capital}</span>
           </div>
+        </div>
+
+        {/* Currency Display */}
+        <div className="flex items-center justify-between bg-background/30 rounded-lg p-3 mt-3">
+          <div className="flex items-center gap-2">
+            <DollarSign className="w-4 h-4 text-white/70" />
+            <span className="text-sm font-medium text-white/80">{name}</span>
+          </div>
+          <span className="text-base font-bold text-white/90 font-mono">
+            {symbol}
+          </span>
         </div>
       </div>
     </div>
