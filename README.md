@@ -1,8 +1,6 @@
-# Global Time Zone Application
-
 ## 🌐 Global Time Zone Application
 
-A modern web application providing an intuitive interface for exploring and managing time zones worldwide. The app is designed with performance and user experience in mind, allowing users to easily navigate time zones, filter them by country or alphabet, and manage their favorites.
+A modern React web application providing an intuitive interface for exploring and managing time zones worldwide. The app is designed with performance and user experience in mind, allowing users to easily navigate time zones, filter them by country or alphabet, and manage their favorites.
 
 ---
 
@@ -32,9 +30,10 @@ A modern web application providing an intuitive interface for exploring and mana
 
 **Frontend**
 
-- ⚡ **HTML5**
+- ⚛️ **React 18**
+- ⚡ **Vite**
 - 🎨 **Tailwind CSS**
-- ✨ **Vanilla JavaScript** (No React or external state management)
+- 🔷 **TypeScript**
 
 **Tools & Utilities**
 
@@ -107,7 +106,7 @@ This project is licensed under the MIT License.
 
 MIT License
 
-Copyright (c) 2024 Jay Tailor
+Copyright (c) 2025 Jay Tailor
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
@@ -120,4 +119,3 @@ The above copyright notice and this permission notice shall be included in all c
 **Jay Tailor**  
 Software UI/UX Designer & Developer  
 Published: January 2025
-
